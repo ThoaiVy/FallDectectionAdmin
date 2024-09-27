@@ -1,0 +1,38 @@
+{% load static %}
+<div class="w-[280px] bg-orange-300 flex flex-col items-center justify-start h-[100vh]">
+  <img src="/static/img/Fall-Detection.png" class="w-[120px] h-[120px] rounded-2xl my-4"  alt="fall-img"/>
+  <div class="text-center text-sm mb-6">
+    <div>You are logging in as</div>
+    <div class="font-medium text-orange-700">{{ request.session.account }}</div>
+  </div>
+  {% if not request.session.is_student %}
+  <ul class="w-full px-6 flex-1">
+    <li
+      class="w-full flex items-center text-left my-2 px-2 py-1 hover:bg-orange-400 hover:rounded-lg hover:text-orange-100 hover:cursor-pointer">
+      <a href="{% url 'server:request' %}" class="flex flex-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+          <path fill-rule="evenodd"
+            d="M7.502 6h7.128A3.375 3.375 0 0118 9.375v9.375a3 3 0 003-3V6.108c0-1.505-1.125-2.811-2.664-2.94a48.972 48.972 0 00-.673-.05A3 3 0 0015 1.5h-1.5a3 3 0 00-2.663 1.618c-.225.015-.45.032-.673.05C8.662 3.295 7.554 4.542 7.502 6zM13.5 3A1.5 1.5 0 0012 4.5h4.5A1.5 1.5 0 0015 3h-1.5z"
+            clip-rule="evenodd" />
+          <path fill-rule="evenodd"
+            d="M3 9.375C3 8.339 3.84 7.5 4.875 7.5h9.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-9.75A1.875 1.875 0 013 20.625V9.375zM6 12a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V12zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM6 15a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V15zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75zM6 18a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H6.75a.75.75 0 01-.75-.75V18zm2.25 0a.75.75 0 01.75-.75h3.75a.75.75 0 010 1.5H9a.75.75 0 01-.75-.75z"
+            clip-rule="evenodd" />
+        </svg>
+        <span class="ml-4 text-xl font-medium">Patient Register</span>
+      </a>
+    </li>
+    <li
+      class="w-full flex items-center text-left my-2 px-2 py-1 hover:bg-orange-400 hover:rounded-lg hover:text-orange-100 hover:cursor-pointer">
+      <a href="" class="flex flex-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+          <path fill-rule="evenodd"
+            d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+            clip-rule="evenodd" />
+        </svg>
+        <span class="ml-4 text-xl font-medium">Account</span>
+      </a>
+    </li>
+  </ul>
+  {% endif %}
+  <a href="{% url 'server:logout' %}" class="text-base font-medium text-orange-600 my-2 hover:text-orange-800">Logout</a>
+</div>

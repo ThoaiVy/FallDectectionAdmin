@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+
+<div
+  class="w-[100vw] h-[100vh] relative flex items-center justify-center"
+>
+  <div class="bg-gray-200 bg-opacity-80 w-[550px] rounded-lg py-12 px-12 z-50">
+    <form method="post">
+      {% csrf_token %}
+      <div
+        class="text-4xl uppercase text-center w-full text-orange-500 font-bold"
+      >
+        Đăng nhập
+      </div>
+      <div
+        class="text-md text-red-500 text-center w-[100%] font-medium mt-2 min-h-[2rem] loginError"
+      >
+        {{ error_message }}
+      </div>
+      <div class="w-[100%] flex flex-col my-3">
+        <label for="username" class="text-lg font-medium mb-1"
+          >Tên tài khoản:
+        </label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Nhập tên tài khoản"
+          class="text-lg rounded-md px-4 py-2 mb-1"
+        />
+      </div>
+      <div class="w-[100%] flex flex-col my-3">
+        <label for="password" class="text-lg font-medium mb-1"
+          >Mật khẩu:
+        </label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Nhập mật khẩu"
+          class="text-lg rounded-md px-4 py-2 mb-1"
+        />
+      </div>
+      <div class="flex flex-row w-[100%] mt-3">
+        <input
+          type="submit"
+          value="Đăng nhập"
+          class="text-center text-lg mr-2 py-2 px-4 w-[100%] uppercase text-white bg-orange-500 hover:bg-orange-600 hover:cursor-pointer rounded-md font-semibold"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="absolute inset-0 backdrop-blur-xs backdrop-filter z-10"></div>
+</div>
+
+{% endblock %}
